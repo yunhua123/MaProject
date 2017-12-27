@@ -4,6 +4,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_normal"
+            android:text="普通地图（包含3D地图）"
+            android:onClick="onClick"/>
+         <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_satellite"
+            android:text="卫星图"
+            android:onClick="onClick"/>
+         <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_none"
+            android:text="空白地图"
+            android:onClick="onClick"/>
+
+
+    </LinearLayout>
 
     <com.baidu.mapapi.map.MapView
         android:id="@+id/mv_map"
