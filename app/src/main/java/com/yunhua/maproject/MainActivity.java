@@ -3,6 +3,8 @@ package com.yunhua.maproject;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.ZoomControls;
 
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapView;
@@ -17,6 +19,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         mMapView = findViewById(R.id.mv_map);
         mBaiduMap = mMapView.getMap();
+        HideBaiduImageLogo();
+    }
+
+    /**
+     * 隐藏百度地图默认图片logo
+     * */
+    private void HideBaiduImageLogo() {
+        View child = mMapView.getChildAt(1);
+        if (child != null && (child instanceof ImageView || child instanceof ZoomControls)) {
+            child.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
@@ -46,12 +59,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
                 break;
 
-                //卫星地图：显示卫星照片数据
+            //卫星地图：显示卫星照片数据
             case R.id.btn_satellite:
                 mBaiduMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
                 break;
 
-                //空白地图：无地图瓦片,地图将渲染为空白地图。不加载任何图块，将不会使用流量下载基础地图瓦片图层。支持叠加任何覆盖物。
+            //空白地图：无地图瓦片,地图将渲染为空白地图。不加载任何图块，将不会使用流量下载基础地图瓦片图层。支持叠加任何覆盖物。
             case R.id.btn_none:
                 mBaiduMap.setMapType(BaiduMap.MAP_TYPE_NONE);
 
