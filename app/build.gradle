@@ -9,10 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        ndk {
-            //选择要添加的对应cpu类型的.so库。
-            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a', 'x86', 'x86_64', 'mips', 'mips64'
-        }
+
     }
     buildTypes {
         release {
@@ -21,12 +18,7 @@ android {
         }
     }
 
-    sourceSets{
-        main{
-            jniLibs.srcDir 'libs'
-            //说明so的路径为该libs路径，关联所有地图SDK的so文件
-        }
-    }
+
 }
 
 dependencies {
